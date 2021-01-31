@@ -53,8 +53,6 @@ There are just two HTTP methods listening on the Application.
 ```
 GET /app/admin HTTP/1.1
 Host: localhost:8080
-cache-control: no-cache
-Postman-Token: 627667c9-bfb2-4a26-9eb3-a3cae7ff48d4
 ```
 
 2. POST Request accepts JSON body in the format specified by Java objects, see example below.
@@ -125,11 +123,10 @@ In order to deploy the application the following commands have to be executed:
 
  - [ ] Kafka Producer does not send the message - drops with 'org.apache.kafka.common.errors.TimeoutException', 
  however, it can be a lack of resources on my personal PC, I don't know what it is yet, need more time debugging,
- all my 8 GB of RAM were occupied and some other programs been hanging, 
  Kafka Tool almost stopped responding, got very slow and didn't load data, 
  so it might be just my local issue, and you might not experience 
- these problems on a more powerful machine, but it is less likely the case. 
- It should be something with Kafka/Docker Network configurations..
+ the same problems on a more powerful machine, but it is less likely the case. 
+ I guess it should be something with Kafka/Docker Network configurations.
  
  - [ ] Database has not been tested yet but it should be working. 
  
@@ -140,10 +137,11 @@ In order to deploy the application the following commands have to be executed:
  and some Java libraries used for logging and working with text. Usually frameworks provide better, 
  more elegant libraries with many useful functionalities embedded in their core.
  It would be preferrable to refactor everything to work with some modern framework.
- 
+
  - [ ] Confgurations mechanism is not finished, it has to be moved to some specific place - file, database or docker-compose.yml, etc. 
- 
+  
  - [ ] Logging can be configured to store logs to console, file or Log Database (Elasticsearch, Kibana, etc.)
  
  - [ ] Metrics can be added, there are no metrics configured on the system right now. (Prometheus, Grafana, etc.)
  
+ - [ ] Deployment commands should be put into 'docker-build.bat' and 'docker-build.sh' - TODO, need more time.
