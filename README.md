@@ -12,15 +12,15 @@ that may provide better performance and scalability of application functionaliti
 
 It is using the most basic tools for working with the technology stack required - MongoDB, Kafka, Java, Docker.
 
-This application is using Basic Java 12 HTTP Server Implementation
+ * This application is using Basic Java 12 HTTP Server Implementation
 in order to make Admin access possible over TCP/HTTP protocol for any kind of control operations. 
-
-Kafka Messaging Module provides consuming and producing capabilities to the application, 
+ 
+ * Kafka Messaging Module provides consuming and producing capabilities to the application, 
 that may be customized and scaled.
 
-MongoDb database is backing application storage, providing CRUD operations to Project instances.
+ * MongoDb database is backing application storage, providing CRUD operations to Project instances.
 
-Everything is packed into Docker images that run together in separate containers and communicate with each other.
+ * Everything is packed into Docker images that run together in separate containers and communicate with each other.
 
 
 # Requirements
@@ -124,10 +124,12 @@ In order to deploy the application the following commands have to be executed:
 # Current Issues
 
  - [ ] Kafka Producer does not send the message - drops with 'org.apache.kafka.common.errors.TimeoutException', 
- however, it can be a lack of resources on my personal PC, 
- all 8 GB of RAM got occupied and some other programs on my laptop has hanged, 
+ however, it can be a lack of resources on my personal PC, I don't know what it is yet, need more time debugging,
+ all my 8 GB of RAM were occupied and some other programs been hanging, 
  Kafka Tool almost stopped responding, got very slow and didn't load data, 
- so it might be just my local issue, and you might not experience these problems on a more powerful machine.
+ so it might be just my local issue, and you might not experience 
+ these problems on a more powerful machine, but it is less likely the case. 
+ It should be something with Kafka/Docker Network configurations..
  
  - [ ] Database has not been tested yet but it should be working. 
  
@@ -136,8 +138,8 @@ In order to deploy the application the following commands have to be executed:
  
  - [ ] No frameworks have been used in this implementation, apart from Database Client drivers, Kafka Client Libraries, 
  and some Java libraries used for logging and working with text. Usually frameworks provide better, 
- more elegant libraries with a lot of functionalities embedded in their core, 
- it would be preferrable to refactor everything to work with some modern frameworks.
+ more elegant libraries with many useful functionalities embedded in their core.
+ It would be preferrable to refactor everything to work with some modern framework.
  
  - [ ] Confgurations mechanism is not finished, it has to be moved to some specific place - file, database or docker-compose.yml, etc. 
  
