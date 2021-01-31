@@ -1,0 +1,82 @@
+version: "3.1"
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017
+    expose:
+      - 27017
+    networks:
+      - my-docker-net
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    links:
+      - mongo:mo
+
+    networks:
+      - my-docker-net
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - 2181:2181
+    networks:
+      - my-docker-net
+    expose:
+      - 2181
+
+  kafka:
+    image: wurstmeister/kafka
+    links:
+      - zookeeper:zk
+    ports:
+      - 9092
+    networks:
+      - my-docker-net
+    expose:
+      - 9092
+    environment:
+      HOSTNAME_COMMAND: "route -n | awk '/UG[ \t]/{print $$2}'"
+      KAFKA_ADVERTISED_HOST_NAME: _{HOSTNAME_COMMAND}
+      KAFKA_ZOOKEEPER_CONNECT: zk:2181
+      KAFKA_MESSAGE_MAX_BYTES: 2000000
+      KAFKA_CREATE_TOPICS: "kafkaproj-playTopic1:1:1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - zookeeper
+
+  kafkaproj-app:
+    build: .
+    image: kafkaproj-play
+    ports:
+      - 8080:8080
+    networks:
+      - my-docker-net
+    links:
+      - mongo:mo
+      - kafka:ka
+    environment:
+      MONGO_CONNECT_HOST: mo
+      MONGO_CONNECT_PORT: 27017
+      KAFKA_CONNECT_URL: ka:9092
+    depends_on:
+      - zookeeper
+      - kafka
+      - mongo
+      - mongo-express
+
+networks:
+  my-docker-net: {}

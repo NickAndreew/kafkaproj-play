@@ -1,0 +1,8 @@
+rootProject.name = 'kafkaproj-play'
+include 'admin'
+include 'db'
+include 'model'
+include 'utils'
+include 'kafka'
+include 'app'
+
