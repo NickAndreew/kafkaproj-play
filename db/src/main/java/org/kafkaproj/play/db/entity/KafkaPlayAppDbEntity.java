@@ -43,6 +43,14 @@ public class KafkaPlayAppDbEntity implements KafkaPlayAppDbEntityInterface {
         this.id = id;
     }
 
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
     public String getParam1() {
         return param1;
     }

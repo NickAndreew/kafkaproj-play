@@ -120,15 +120,6 @@ In order to deploy the application the following commands have to be executed:
  
 
 # Current Issues
-
- - [ ] Kafka Producer does not send the message - drops with 'org.apache.kafka.common.errors.TimeoutException', 
- however, it can be a lack of resources on my personal PC, I don't know what it is yet, need more time debugging,
- Kafka Tool almost stopped responding, got very slow and didn't load data, 
- so it might be just my local issue, and you might not experience 
- the same problems on a more powerful machine, but it is less likely the case. 
- I guess it should be something with Kafka/Docker Network configurations.
- 
- - [ ] Database has not been tested yet but it should be working. 
  
  - [ ] Dependency Injection should be rewritten, optimized. Currently, it's just a bear minimum of java boilerplate code, 
  to run the stack of technologies required. 
@@ -138,7 +129,7 @@ In order to deploy the application the following commands have to be executed:
  more elegant libraries with many useful functionalities embedded in their core.
  It would be preferrable to refactor everything to work with some modern framework.
 
- - [ ] Confgurations mechanism is not finished, it has to be moved to some specific place - file, database or docker-compose.yml, etc. 
+ - [ ] Configurations mechanism is not finished, it has to be moved to some specific place - file, database or docker-compose.yml, etc. 
   
  - [ ] Logging can be configured to store logs to console, file or Log Database (Elasticsearch, Kibana, etc.)
  

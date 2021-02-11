@@ -47,7 +47,7 @@ public class KafkaPlayAppProducer {
     private Producer<Long, KafkaPlayAppMessageEntity> createProducer() {
         Properties props = new Properties();
 
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaPlayAppKafkaConfig.KAFKA_BROKERS);
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaPlayAppKafkaConfig.KAFKA_CONNECT_PRODUCER);
         props.put(ProducerConfig.CLIENT_ID_CONFIG, KafkaPlayAppKafkaConfig.CLIENT_ID);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, LongSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaPlayAppSerializer.class);

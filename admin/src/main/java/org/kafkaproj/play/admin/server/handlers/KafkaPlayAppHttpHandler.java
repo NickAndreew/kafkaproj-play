@@ -116,7 +116,7 @@ public class KafkaPlayAppHttpHandler implements HttpHandler {
             producer.sendMessageAsync(uid, topicName, kafkaAppMessage1);
 
             // log
-            logger.info("[{}] Processed POST request", uid);
+            logger.info("[{}] Processed POST request - {}", uid, kafkaAppMessage1);
         } catch (IOException ex) {
             // log
             logger.error("[{}] Exception thrown when tried to deserialize request body, error: {}", uid, ex);

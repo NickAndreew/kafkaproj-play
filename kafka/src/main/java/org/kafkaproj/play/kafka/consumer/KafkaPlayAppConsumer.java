@@ -54,7 +54,7 @@ public class KafkaPlayAppConsumer {
         final Properties props = new Properties();
 
         // add properties
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaPlayAppKafkaConfig.KAFKA_BROKERS);
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaPlayAppKafkaConfig.KAFKA_BROKERS_CONSUMER);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, KafkaPlayAppKafkaConfig.GROUP_ID_CONFIG);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, LongDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaPlayAppDeserializer.class);

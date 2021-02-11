@@ -2,7 +2,8 @@ package org.kafkaproj.play.kafka.config;
 
 public interface KafkaPlayAppKafkaConfig {
 
-    String KAFKA_BROKERS = System.getenv().get("KAFKA_CONNECT_URL");
+    String KAFKA_BROKERS_CONSUMER = System.getenv().get("KAFKA_CONNECT_CONSUMER_URL");
+    String KAFKA_CONNECT_PRODUCER = System.getenv().get("KAFKA_CONNECT_PRODUCER_URL");
 
     String CLIENT_ID = "client1";
 
