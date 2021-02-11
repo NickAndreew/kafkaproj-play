@@ -105,14 +105,13 @@ In order to deploy the application the following commands have to be executed:
  
 ``` 
  1. pull or download the project
- 1. start docker
- 1. cd ./projectDir
- 1. gradle build - if command fails from console (java/gradle versions mismatch/incompatible with project resources 
- or other issues), please try building it in Intellij IDEA, 
- you can adjust gradle settings on the project
- to make it work with necessary versions.
- 1. cd ./projectDir/docker
- 1. docker-compose up
+ 2. start docker
+ 3. cd ./projectDir
+ 4. gradle build - if command fails from console (java/gradle versions mismatch/incompatible with project resources 
+    or other issues), please try building it in Intellij IDEA, you can adjust gradle settings on the project
+    to make it work with necessary versions.
+ 5. cd ./projectDir/docker
+ 6. docker-compose up
 ``` 
 
  After running these commands, if all goes well and all dependencies and versions matched, 
