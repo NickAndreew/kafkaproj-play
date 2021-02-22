@@ -120,7 +120,7 @@ In order to deploy the application the following commands have to be executed:
 
 # Current Issues
  
- - [ ] Dependency Injection should be rewritten, optimized. Currently, it's just a bear minimum of java boilerplate code, 
+ - [ ] Dependency Injection should be rewritten, optimized. Currently, it's just a bare minimum of java boilerplate code, 
  to run the stack of technologies required. 
  
  - [ ] No frameworks have been used in this implementation, apart from Database Client drivers, Kafka Client Libraries, 
